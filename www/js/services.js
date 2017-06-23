@@ -17,13 +17,21 @@ angular.module('starter.services', [])
     {
       id: 2,
       name: 'Feed Kitten',
-      desccription: 'Gotta feed mittens in like 5 minutes or else he will get a little cranky',
+      description: 'Gotta feed mittens in like 5 minutes or else he will get a little cranky',
     }
   ];
 
   return {
     all: function() {
       return tasks;
+    },
+    create: function(newTask){
+      tasks.push({
+        id: tasks.length + 1,
+        name : newTask.taskName,
+        description: newTask.taskDesc
+      });
+      return true;
     },
     remove: function(task) {
       tasks.splice(tasks.indexOf(task), 1);
