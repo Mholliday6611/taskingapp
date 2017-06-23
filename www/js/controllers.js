@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic.native'])
 
-.controller('DashCtrl', function($scope, $cordovaInAppBrowser) {
+.controller('DashCtrl', function($scope,  $cordovaInAppBrowser) {
   $scope.openBrowser = function(){
     $cordovaInAppBrowser.create("https://www.google.com");
   }
