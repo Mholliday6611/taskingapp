@@ -1,20 +1,13 @@
 angular.module('starter.controllers', ['ionic.native'])
 
-.controller('DashCtrl', function($scope,  $cordovaInAppBrowser) {
-  $scope.openBrowser = function(){
-    $cordovaInAppBrowser.create("https://www.google.com");
-  }
+.controller('DashCtrl', function($scope) {
 
 })
 
-.controller('TasksCtrl', function($scope, Tasks, $ionicModal, $cordovaLocalNotification) {
+.controller('TasksCtrl', function($scope, Tasks, $ionicModal) {
   $scope.tasks = Tasks.all();
   $scope.remove = function(task) {
-    Tasks.remove(task);
-    $cordovaLocalNotification.schedule({
-      id: 1,
-      text: 'Single ILocalNotifcation'
-    })
+    Tasks.remove(task)
   };
 
   $ionicModal.fromTemplateUrl("templates/modal.html", {
